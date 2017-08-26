@@ -13,5 +13,5 @@ This is a limitation of the API, since add-ons can't choose where menu items are
 This add-on was built based on the following sources:
 
 - **Clipboard code implementation:**
--- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/background.js` (html)
--- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/clipboard-helper.js` (css)
+-- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/background.js`
+-- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/clipboard-helper.js`
