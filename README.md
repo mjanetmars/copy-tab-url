@@ -1,6 +1,6 @@
 # Copy Tab URL
 
-**Copy Tab URL** is a WebExt-based Firefox add-on that allows users to copy the URL from a tab from the context menu.
+**Copy Tab URL** is a WebExt-based Firefox add-on that allows users to copy the URL of a tab from the context menu.
 
 ## Known bugs
 
