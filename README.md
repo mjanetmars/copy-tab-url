@@ -1,0 +1,17 @@
+# Copy Tab URL
+
+**Copy Tab URL** is a WebExt-based Firefox add-on that allows users to copy the URL from a tab from the context menu.
+
+## Known bugs
+
+### Context menu item positioning
+
+This is a limitation of the API, since add-ons can't choose where menu items are positioned. Hopefully this will be changed in future versions of the WebExt API.
+
+## Sources
+
+This add-on was built based on the following sources:
+
+- **Clipboard code implementation:**
+-- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/background.js` (html)
+-- `https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/clipboard-helper.js` (css)
