@@ -5,12 +5,12 @@
   "short_name": "CopyTabURL",
   "author": "MarsCat",
   "description": "Copies the URL from a tab.",
-  "version": "0.1",
+  "version": "0.2",
   
   "developer":
   {
     "name": "MarsCat",
-    "url": "https://gitlab.com/mjanetmars/copy-tab-url"
+    "url": "https://github.com/mjanetmars/copy-tab-url"
   },
 
   "icons":
@@ -19,15 +19,7 @@
     "96": "copy_tab_url.svg"
   },
    
-  "permissions":
-  [
-    "tabs",
-    "contextMenus",
-    "clipboardWrite"
-  ],
+  "permissions": ["contextMenus", "tabs", "clipboardWrite", "notifications" ],
   
-  "background":
-  {
-    "scripts": ["background.js"]
-  }
+  "background": { "scripts": ["background.js"] }
 }

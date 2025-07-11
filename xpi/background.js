@@ -1,34 +1,38 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- - License, v. 2.0. If a copy of the MPL was not distributed with this
- - file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-/* based on https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/background.js
-     and on https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/clipboard-helper.js */
+// #region Add context menu
 
-/* create context menu button */
+browser.contextMenus.create({ id: "copy-tab-url", title: "Copy Tab URL", contexts: ["tab"] });
 
-browser.contextMenus.create(
+// #endregion
+
+// #region Copy URL to clipboard
+
+browser.contextMenus.onClicked.addListener(async (info, tab) =>
 {
-  id: "copy-tab-url",
-  title: "Copy Tab URL",
-  contexts: ["tab"]
-});
-
-/* copy text */
-browser.contextMenus.onClicked.addListener( (info, tab) =>
-{
-  /* when item is clicked */
-  if (info.menuItemId === "copy-tab-url")
+  if (info.menuItemId === "copy-tab-url" && tab?.url)
   {
-    /* copies the text */
-    function oncopy(event)
+    try
     {
-      event.preventDefault();
-      event.clipboardData.setData("text/plain", tab.url);
-      
-    }
-    document.addEventListener("copy", oncopy, true);
+      await navigator.clipboard.writeText(tab.url);
 
-    document.execCommand("copy");
+      // Show notification
+      browser.notifications.create({
+        type: "basic",
+        iconUrl: browser.runtime.getURL("copy_tab_url.svg"),
+        title: "URL Copied",
+        message: "The tab URL has been copied to the clipboard."
+      });
+    }
+    catch (err)
+    {
+      browser.notifications.create({
+        type: "basic",
+        iconUrl: browser.runtime.getURL("copy_tab_url.svg"),
+        title: "Error",
+        message: "Could not copy the URL."
+      });
+    }
   }
 });
+
+// #endregion
